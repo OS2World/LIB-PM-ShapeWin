@@ -11,6 +11,10 @@ Originally written by Akira Hatakeyama / Software Research Associates.
 Version 2.01 is an OS2World community port adding an OpenWatcom 2.0
 build system and fixing two bugs present in 2.00.
 
+![ShapeWin Sample 1](/doc/ShapeWin_001.png)
+
+![ShapeWin Sample 2](/doc/ShapeWin_002.png)
+
 ## License
 
 GNU Lesser General Public License v2.1 or later.  See `doc/LGPL_en.txt`.
