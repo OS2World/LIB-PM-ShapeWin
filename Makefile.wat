@@ -29,9 +29,11 @@ dll\shapewin.dll: dll\shapewin.obj
         option implib=lib\shapewin.lib &
         option map=dll\shapewin.map &
         option manyautodata &
-        export ShapeWinInit.1 &
+        export ShapeWinInit.1=ShapeWinInit_ &
         export ShapeWinProc.2 &
-        file dll\shapewin.obj
+        file dll\shapewin.obj &
+        library C:\WATCOM\lib386\os2\os2386.lib &
+        library C:\WATCOM\lib386\os2\clib3r.lib
 
 clean: .SYMBOLIC
     @if exist dll\*.obj del dll\*.obj
