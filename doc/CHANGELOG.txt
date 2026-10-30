@@ -1,0 +1,59 @@
+ShapeWin - Change Log
+=====================
+
+2.01  2026-10-29  OpenWatcom build port; bug fixes
+                  OS2World community port
+
+  - Added OpenWatcom 2.0 build system: Makefile.wat, compile_wat.cmd,
+    compile_samples.cmd.  Replaces the original EMX/GCC Makefile.
+
+  - Reorganized source tree into standard layout:
+    src/ (library source), h/ (public header), dll/ (DLL output),
+    lib/ (import library output), sample/ (sample programs), doc/.
+
+  - Fixed ShapeWinInit() declaration in shapewin.h to use _System
+    calling convention.  OpenWatcom's default __watcall convention
+    appends a trailing underscore to symbol names; adding _System makes
+    the exported name match the import library without a linker alias.
+
+  - Fixed unconditional fflush(stdout) in parseMask() (shapewin.c).
+    The call was on the same line as the TRACE() debug macro but outside
+    the #ifdef SHPDEBUG guard.  Without SHPDEBUG defined, TRACE() was
+    a no-op but fflush(stdout) remained, causing a SYS3175 access
+    violation trap because stdout is not initialized in a PM DLL that
+    has no console.  Wrapped the entire line in #ifdef SHPDEBUG.
+
+  - Sample OW port fixes (trbitmap.c, tranime.c, treyes.c):
+    - Added explicit _System prototype for DosSearchPath().  The
+      OS/2 Toolkit 4.5 headers do not declare this function when only
+      INCL_PM is defined, causing __watcall name decoration and an
+      undefined reference at link time.
+    - Added no-op _wildcard() stub.  _wildcard() is an EMX-specific
+      command-line wildcard expansion helper not present in the
+      OpenWatcom C runtime.  The stub satisfies the linker; callers
+      must expand wildcards themselves or via the shell.
+
+2.00  Dec 2001  DLL conversion; license change to LGPL
+                Akira Hatakeyama <akira@sra.co.jp>
+
+  - Converted library from static to DLL.
+  - Changed license from GPL to LGPL to encourage broader use.
+  - Included bug fix from Masami Kitamura <masamik@attglobal.net>:
+    hpsMask presentation space (separate from hpsDraw) now works
+    correctly as a mask source.
+
+1.02  speedup
+      Akira Hatakeyama <akira@sra.co.jp>
+
+  - Included speedup patch from Ulrich Moeller (author of XFolder /
+    XWorkplace).  CPU usage reduced to approximately half.
+
+1.01  bugfix & speedup
+      Akira Hatakeyama <akira@sra.co.jp>
+
+  - Added mouse event notifications to owner window.
+  - Included speedup patch from Takayuki Suwa.
+    CPU usage reduced from ~80% to ~60% on typical animations.
+
+1.00  first release
+      Akira Hatakeyama <akira@sra.co.jp>

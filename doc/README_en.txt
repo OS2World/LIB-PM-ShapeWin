@@ -1,8 +1,8 @@
 
 
-	    ShapeWindow - Shape (non-rectangular) Window for OS/2        
-	    
-                    Version 2.00, Dec, 2001
+	    ShapeWindow - Shape (non-rectangular) Window for OS/2
+
+                    Version 2.01, Oct, 2026
 
         Copyright (C) 1998-2001 Software Research Associates, Inc.
 
@@ -92,7 +92,21 @@ Description
     bitmap, complicated bitmap result slow down your machine.  So before
     you use large, complicated bitmaps, try little bitmaps first.
     
-Update Histry
+Update History
+
+    2.01        OpenWatcom build port; bug fixes  (OS2World community port)
+
+        Added OpenWatcom 2.0 build system (Makefile.wat, compile_wat.cmd,
+        compile_samples.cmd) to replace the original EMX/GCC Makefile.
+
+        Reorganized source tree: src/, h/, dll/, lib/, sample/, doc/.
+
+        Fixed ShapeWinInit() calling convention (_System) in shapewin.h
+        to eliminate linker symbol mismatch when building with OpenWatcom.
+
+        Fixed unconditional fflush(stdout) in parseMask() that caused a
+        SYS3175 access violation trap in PM DLL context when SHPDEBUG is
+        not defined.  See doc/CHANGELOG.txt for full details.
 
     2.00        changed license, bug fix
     
@@ -126,12 +140,10 @@ Known Problems
 
     'Object Desktop' causes problems, a part of bitmap is not redrawn.
 
-Contant
+Contact
 
-    Send bug report, questions, requests to
-
-        akira@sra.co.jp
-
-    Newest version will placed on
-    
+    Original author: Akira Hatakeyama <akira@sra.co.jp>
         http://www.sra.co.jp/people/akira/os2/shapewin-e.html
+
+    OS2World community port discussion:
+        https://www.os2world.com

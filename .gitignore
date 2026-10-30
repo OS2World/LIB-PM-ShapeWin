@@ -7,4 +7,5 @@ sample/*.obj
 sample/*.res
 sample/*.map
 sample/*.exe
+sample/*.dll
 *.err
