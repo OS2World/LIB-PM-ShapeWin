@@ -270,7 +270,9 @@ static  SPANPTR parseMask(HPS hps, PBITMAPINFOHEADER2 bmih2)
     
     for (y = 0 ; y < bmih2->cy ; y++) {
 
+#ifdef SHPDEBUG
         TRACE("parseMask - scan line %d\n", y) ; fflush(stdout) ;
+#endif
 
         GpiQueryBitmapBits(hps, y, 1, buf, pbm) ;
 
