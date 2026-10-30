@@ -2,3 +2,9 @@
 dll/
 lib/
 compile_wat.log
+compile_samples.log
+sample/*.obj
+sample/*.res
+sample/*.map
+sample/*.exe
+*.err

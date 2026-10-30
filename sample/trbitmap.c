@@ -9,6 +9,13 @@
 #define INCL_PM
 #include <os2.h>
 
+/* DosSearchPath may be missing from older toolkit headers */
+extern APIRET _System DosSearchPath(ULONG ulType, PSZ pszPath,
+                                    PSZ pszFile, PBYTE pBuf, ULONG cbBuf);
+
+/* _wildcard is EMX-specific; stub it out for OW builds */
+void _wildcard(int *argc, char ***argv) { (void)argc; (void)argv; }
+
 #include <shapewin.h>
 #include "bmpload.h"
 

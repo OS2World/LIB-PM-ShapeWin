@@ -25,7 +25,7 @@ typedef struct _SHAPEWIN {
  * Register Shape Window Control
  */
 
-BOOL    ShapeWinInit(HAB hab) ;
+BOOL _System ShapeWinInit(HAB hab) ;
 
 /*
  * Window Procedure for Shape Window Control

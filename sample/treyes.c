@@ -10,6 +10,9 @@
 #define INCL_PM
 #include <os2.h>
 
+extern APIRET _System DosSearchPath(ULONG ulType, PSZ pszPath,
+                                    PSZ pszFile, PBYTE pBuf, ULONG cbBuf);
+
 #include <shapewin.h>
 
 #include "treyes.h"

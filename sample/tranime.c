@@ -9,6 +9,10 @@
 #define INCL_PM
 #include <os2.h>
 
+extern APIRET _System DosSearchPath(ULONG ulType, PSZ pszPath,
+                                    PSZ pszFile, PBYTE pBuf, ULONG cbBuf);
+void _wildcard(int *argc, char ***argv) { (void)argc; (void)argv; }
+
 #include <shapewin.h>
 #include "bmpload.h"
 
