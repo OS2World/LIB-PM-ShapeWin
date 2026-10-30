@@ -1,0 +1,4 @@
+# Build output directories
+dll/
+lib/
+compile_wat.log
