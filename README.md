@@ -40,7 +40,8 @@ compile_samples.cmd  Build script for the sample programs
 ## Building
 
 Requires **OpenWatcom 2.0** and the **OS/2 Toolkit 4.5** installed at
-`C:\WATCOM` and `C:\os2tk45` respectively, plus IBM RC from the Toolkit.
+`C:\WATCOM` and `C:\os2tk45` respectively.  The OpenWatcom resource
+compiler (`wrc`) is used for resources and is included with OpenWatcom.
 
 Build the DLL:
 

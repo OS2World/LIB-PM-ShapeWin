@@ -42,7 +42,7 @@ clean: .SYMBOLIC
     @if exist lib\*.lib del lib\*.lib
 
 WATCOM = C:\WATCOM
-RC     = C:\os2tk45\bin\rc.exe
+RC     = wrc
 
 SCFLAGS = -bt=os2 -mf -5 -fpi -Oaxt -W3 -ze &
           -I=h -I=sample -I=$(OS2TK)\h -I=$(WATCOM)\H
@@ -58,7 +58,7 @@ sample\bmpload.obj: sample\bmpload.c ; $(CC) $(SCFLAGS) -fo=$^@ $<
 # trbitmap
 sample\trbitmap.obj: sample\trbitmap.c ; $(CC) $(SCFLAGS) -fo=$^@ $<
 sample\trbitmap.res: sample\trbitmap.rc
-    C:\OS2\CMD.EXE /c "cd sample & $(RC) -r -I ..\h -I . -I $(OS2TK)\h trbitmap.rc trbitmap.res"
+    $(RC) -bt=os2 -r -I=h -I=sample -I=$(OS2TK)\h -fo=$^@ $<
 sample\trbitmap.exe: sample\trbitmap.obj sample\bmpload.obj sample\trbitmap.res lib\shapewin.lib
     $(WLINK) system os2v2_pm &
         name sample\trbitmap.exe &
@@ -67,12 +67,12 @@ sample\trbitmap.exe: sample\trbitmap.obj sample\bmpload.obj sample\trbitmap.res 
         file sample\trbitmap.obj &
         file sample\bmpload.obj &
         lib $(SLIBS)
-    $(RC) sample\trbitmap.res sample\trbitmap.exe
+    $(RC) -bt=os2 sample\trbitmap.res sample\trbitmap.exe
 
 # tranime
 sample\tranime.obj: sample\tranime.c ; $(CC) $(SCFLAGS) -fo=$^@ $<
 sample\tranime.res: sample\tranime.rc
-    C:\OS2\CMD.EXE /c "cd sample & $(RC) -r -I ..\h -I . -I $(OS2TK)\h tranime.rc tranime.res"
+    $(RC) -bt=os2 -r -I=h -I=sample -I=$(OS2TK)\h -fo=$^@ $<
 sample\tranime.exe: sample\tranime.obj sample\bmpload.obj sample\tranime.res lib\shapewin.lib
     $(WLINK) system os2v2_pm &
         name sample\tranime.exe &
@@ -81,12 +81,12 @@ sample\tranime.exe: sample\tranime.obj sample\bmpload.obj sample\tranime.res lib
         file sample\tranime.obj &
         file sample\bmpload.obj &
         lib $(SLIBS)
-    $(RC) sample\tranime.res sample\tranime.exe
+    $(RC) -bt=os2 sample\tranime.res sample\tranime.exe
 
 # treyes (no bmpload needed)
 sample\treyes.obj: sample\treyes.c ; $(CC) $(SCFLAGS) -fo=$^@ $<
 sample\treyes.res: sample\treyes.rc
-    C:\OS2\CMD.EXE /c "cd sample & $(RC) -r -I ..\h -I . -I $(OS2TK)\h treyes.rc treyes.res"
+    $(RC) -bt=os2 -r -I=h -I=sample -I=$(OS2TK)\h -fo=$^@ $<
 sample\treyes.exe: sample\treyes.obj sample\treyes.res lib\shapewin.lib
     $(WLINK) system os2v2_pm &
         name sample\treyes.exe &
@@ -94,7 +94,7 @@ sample\treyes.exe: sample\treyes.obj sample\treyes.res lib\shapewin.lib
         option map=sample\treyes.map &
         file sample\treyes.obj &
         lib $(SLIBS)
-    $(RC) sample\treyes.res sample\treyes.exe
+    $(RC) -bt=os2 sample\treyes.res sample\treyes.exe
 
 cleansample: .SYMBOLIC
     @if exist sample\*.obj del sample\*.obj

@@ -23,6 +23,13 @@ ShapeWin - Change Log
     violation trap because stdout is not initialized in a PM DLL that
     has no console.  Wrapped the entire line in #ifdef SHPDEBUG.
 
+  - Switched resource compiler from IBM RC to OpenWatcom wrc (included
+    with OpenWatcom).  IBM RC needed DPATH set to find messages.msg and
+    required a "cd sample" trick to resolve .ico references; wrc resolves
+    them via -I=sample from the project root.  Also eliminates the RC
+    Error 2021 "cannot write extended attributes" warning when building
+    on a filesystem that does not support OS/2 EAs (e.g. a shared folder).
+
   - Sample OW port fixes (trbitmap.c, tranime.c, treyes.c):
     - Added explicit _System prototype for DosSearchPath().  The
       OS/2 Toolkit 4.5 headers do not declare this function when only
