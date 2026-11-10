@@ -2,7 +2,7 @@
 
 	    ShapeWindow - Shape (non-rectangular) Window for OS/2
 
-                    Version 2.01, Oct, 2026
+                    Version 2.02, Nov, 2026
 
         Copyright (C) 1998-2001 Software Research Associates, Inc.
 
@@ -93,6 +93,12 @@ Description
     you use large, complicated bitmaps, try little bitmaps first.
     
 Update History
+
+    2.02        Switch to OpenWatcom wrc resource compiler  (OS2World community port)
+
+        Switched from IBM RC to OpenWatcom wrc for resource compilation.
+        No extra installation required; wrc is included with OpenWatcom.
+        See doc/CHANGELOG.txt for full details.
 
     2.01        OpenWatcom build port; bug fixes  (OS2World community port)
 

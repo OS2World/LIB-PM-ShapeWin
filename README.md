@@ -1,6 +1,6 @@
 # ShapeWin — Non-Rectangular Window Library for OS/2 PM
 
-**Version 2.01**
+**Version 2.02**
 
 ShapeWin is a custom PM control (widget) that implements shape
 (non-rectangular) windows for OS/2 Presentation Manager.  It works by
@@ -8,7 +8,7 @@ maintaining an invisible frame window alongside a shaped child window
 whose visible region is determined by a mask bitmap.
 
 Originally written by Akira Hatakeyama / Software Research Associates.
-Version 2.01 is an OS2World community port adding an OpenWatcom 2.0
+Version 2.02 is an OS2World community port adding an OpenWatcom 2.0
 build system and fixing two bugs present in 2.00.
 
 ![ShapeWin Sample 1](/doc/ShapeWin_001.png)
@@ -104,6 +104,10 @@ treyes.exe
 ## Changelog
 
 See `doc/CHANGELOG.txt` for the full version history.
+
+**2.02** (2026-11-10) — Switch to OpenWatcom wrc (OS2World community)
+- Switched resource compiler from IBM RC to `wrc` (included with OpenWatcom)
+- No DPATH setup required; eliminates RC Error 2021 on shared-folder builds
 
 **2.01** (2026-10-29) — OpenWatcom build port (OS2World community)
 - Added `Makefile.wat` / `compile_wat.cmd` / `compile_samples.cmd`
